@@ -1,60 +1,60 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/DevOps-CI%2FCD%20Pipeline-blue?style=for-the-badge&logo=devops" />
-  <img src="https://img.shields.io/badge/Docker-Containerization-brightgreen?style=for-the-badge&logo=docker" />
-  <img src="https://img.shields.io/badge/Kubernetes-Orchestration-blue?style=for-the-badge&logo=kubernetes" />
-  <img src="https://img.shields.io/badge/Jenkins-Automation-red?style=for-the-badge&logo=jenkins" />
-</p>
+.
 
-<h1 align="center">🚀 DevOps CI/CD Pipeline — GitHub → Jenkins → DockerHub → Kubernetes</h1>
+🚀 DevOps CI/CD Pipeline — GitHub → Jenkins → DockerHub → Kubernetes (Minikube)
 
+This project showcases a complete automated CI/CD pipeline that builds, containerizes, pushes, and deploys a static website using:
 
+GitHub → Jenkins → Docker → DockerHub → Kubernetes (Minikube)
 
+The website is built using Mobirise, packaged into an NGINX container, then deployed automatically.
 
+📐 Architecture Overview
 
+Developer pushes code to GitHub
 
+Jenkins Pipeline triggers automatically
 
+Jenkins performs:
 
-#DevOps CI/CD Pipeline — GitHub → Jenkins → DockerHub → Kubernetes#
+Clone repository
 
-This project demonstrates a complete DevOps pipeline using **GitHub**, **Jenkins**, **Docker**, **DockerHub**, and **Kubernetes (Minikube)**.  
-The goal is to automate build, containerization, image publishing, and deployment of a static website created with **Mobirise**.
+Build Docker image
 
+Push image to DockerHub
 
+Kubernetes Deployment pulls the new image
 
-##Architecture Overview
+NGINX (inside container) serves the static website
 
-1. **Developer pushes code to GitHub**
-2. **Jenkins Pipeline triggers automatically**
-3. Jenkins:
-   - Clones repository  
-   - Builds Docker image  
-   - Pushes image to DockerHub  
-4. **Kubernetes Deployment** pulls the new Docker image
-5. NGINX inside the container serves the website
-6. The site is exposed through Kubernetes using port-forward or NodePort
+Website exposed using:
 
+kubectl port-forward
 
-##Project Components
+or NodePort Service
 
-### **Frontend**
-- Static website created using Mobirise Portfolio Template  
-- Files included:
-  - `index.html`
-  - `assets/`
-  - `project.mobirise`
+🧩 Project Components
+Frontend
 
-### **Dockerfile**
-Uses lightweight NGINX to serve the site:
+Static site generated using Mobirise Portfolio Template.
 
-```dockerfile
+Folder includes:
+
+index.html
+
+assets/
+
+project.mobirise
+
+🐳 Dockerfile
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 COPY . /usr/share/nginx/html/
 EXPOSE 80
 
 
-### **Jenkinsfile**
+This uses a lightweight NGINX image to serve all static files.
 
+🔧 Jenkins Pipeline (Jenkinsfile)
 pipeline {
     agent any
 
@@ -92,47 +92,48 @@ pipeline {
     }
 }
 
+🐳 DockerHub Image
 
-### *Dockerhub* image ###
-at -- harsh672/devops-project:latest
+📦 Image: harsh672/devops-project:latest
+Used directly by Kubernetes Deployment.
 
-then ---
-## K8S *MINIKUBE* ##
-1. Create Deployment         2. Expose Service (NodePort)       3. Using Kubernetes port-forward           4. http://<EC2-PUBLIC-IP>:port
+☸️ Kubernetes (Minikube) Deployment
+1. Create Deployment
+kubectl create deployment devops-website --image=harsh672/devops-project:latest
 
+2. Expose via NodePort
+kubectl expose deployment devops-website --type=NodePort --port=80
 
-## Screenshots
+3. Get service URL
+minikube service devops-website --url
 
-### ✔ Jenkins Pipeline Success
-![Pipeline Success](./screenshots/jenkins-success-1.png)
+4. Access from EC2 (with security group open)
+http://<EC2-PUBLIC-IP>:<NodePort>
 
-![Pipeline Logs](./screenshots/jenkins-success-2.png)
+📸 Screenshots
+✔ Jenkins Pipeline Success
 
-### ✔ DockerHub Image
-![DockerHub Image](./screenshots/dockerhub-image.png)
+✔ DockerHub Image
 
-### ✔ Minikube Setup
-![Minikube Setup](./screenshots/minikube-setup.png)
+✔ Minikube Setup
 
-### ✔ Live Website
-![Live Website](./screenshots/website-live-1.png)
+✔ Live Website
 
-### ✔ Website Pages
-![Home Page](./screenshots/website-page2.png)
-![Tools Page](./screenshots/website-page3.png)
-![Process Page](./screenshots/website-page4.png)
-
+✔ Website Pages
 
 
 
 
-### Author ###
 
-**Harsh Saini**  
-🔗 GitHub: https://github.com/dhanushharsh  
-🔗 LinkedIn: https://www.linkedin.com/in/harsh-saini-ab515628b/  
-🔗 Medium: https://medium.com/@mr.harshsaini108  
+
+👤 Author
+
+Harsh Saini
+
+🔗 GitHub: https://github.com/dhanushharsh
+
+🔗 LinkedIn: https://www.linkedin.com/in/harsh-saini-ab515628b/
+
+🔗 Medium: https://medium.com/@mr.harshsaini108
+
 📧 Email: mr.harshsaini108@gmail.com
-
-
-
