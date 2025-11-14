@@ -14,7 +14,7 @@
 
 
 
-#DevOps CI/CD Pipeline — GitHub → Jenkins → DockerHub → Kubernetes#
+
 
 This project demonstrates a complete DevOps pipeline using **GitHub**, **Jenkins**, **Docker**, **DockerHub**, and **Kubernetes (Minikube)**.  
 The goal is to automate build, containerization, image publishing, and deployment of a static website created with **Mobirise**.
