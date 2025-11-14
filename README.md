@@ -46,11 +46,16 @@ The goal is to automate build, containerization, image publishing, and deploymen
 ### **Dockerfile**
 Uses lightweight NGINX to serve the site:
 
+### **Dockerfile**
+Uses lightweight NGINX to serve the site:
+
 ```dockerfile
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 COPY . /usr/share/nginx/html/
 EXPOSE 80
+```
+
 
 
 ### **Jenkinsfile**
