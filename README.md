@@ -101,7 +101,7 @@ then ---
 1. Create Deployment         2. Expose Service (NodePort)       3. Using Kubernetes port-forward           4. http://<EC2-PUBLIC-IP>:port
 
 
-## screenshots
+##  Screenshots
 
 ### ✔ Jenkins Pipeline Success
 ![Pipeline Success](./screenshots/jenkins-success-1.png)
