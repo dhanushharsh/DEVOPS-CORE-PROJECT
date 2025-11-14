@@ -104,23 +104,23 @@ then ---
 ## screenshots
 
 ### ✔ Jenkins Pipeline Success
-![Pipeline Success](./screenshots/jenkins-success-1.png)
+![Pipeline Success](./screenshots/jenkins-success-1.PNG)
 
-![Pipeline Logs](./screenshots/jenkins-success-2.png)
+![Pipeline Logs](./screenshots/jenkins-success-2.PNG)
 
 ### ✔ DockerHub Image
-![DockerHub Image](./screenshots/dockerhub-image.png)
+![DockerHub Image](./screenshots/dockerhub-image.PNG)
 
 ### ✔ Minikube Setup
-![Minikube Setup](./screenshots/minikube-setup.png)
+![Minikube Setup](./screenshots/minikube-setup.PNG)
 
 ### ✔ Live Website
-![Live Website](./screenshots/website-live-1.png)
+![Live Website](./screenshots/website-live-1.PNG)
 
 ### ✔ Website Pages
-![Home Page](./screenshots/website-page2.png)
-![Tools Page](./screenshots/website-page3.png)
-![Process Page](./screenshots/website-page4.png)
+![Home Page](./screenshots/website-page2.PNG)
+![Tools Page](./screenshots/website-page3.PNG)
+![Process Page](./screenshots/website-page4.PNG)
 
 
 
